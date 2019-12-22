@@ -22,6 +22,6 @@ app.use(
 app.use(cors());
 app.use(bodyparsers.json({}));
 app.use("/", routeManager);
-app.use('',express.static(__dirname + '/crud/'));
+// app.use('',express.static(__dirname + '/crud/'));
 
 app.listen(process.env.PORT, () => console.log("server started"));

@@ -1,5 +1,3 @@
-var recursive = require("recursive-readdir");
-var readdir = require("recursive-readdir");
 const jwt = require("jsonwebtoken");
 const sec = require("../config");
 const userModel = require("../models/user.db");
