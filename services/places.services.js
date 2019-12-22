@@ -44,7 +44,7 @@ class place {
     });
   }
 
-  updateUser(payload, pId) {
+  updatePlace(payload, pId) {
     return new Promise((resolve, reject) => {
       placeModel
         .findByIdAndUpdate(
