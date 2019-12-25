@@ -67,4 +67,4 @@ getValueList() {
     });
   }
 }
-module.exports=new place();
+module.exports=new value();

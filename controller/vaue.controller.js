@@ -1,0 +1,52 @@
+const Router=require('express').Router;
+let router=Router();
+const valueFunction=require('../services/vaue.services')
+var tokenValidation=require('../utilities/tokenValidator')
+
+
+router.post('/',(req,res)=>
+{
+valueFunction.addValue(req.body)
+ .then(d=>res.json(d))
+ .catch(e=>res.json(e));
+})
+
+
+router.get('/',(req,res)=>
+{
+  valueFunction.getValueList()
+  .then(d=>res.json(d))
+ .catch(e=>{
+   console.log(e,"messages")
+   res.status(403).json({ e });
+ });
+})
+router.get('/:id',(req,res)=>
+{
+  valueFunction.getParlicaulaValue(req.params.id)
+  .then(d=>res.json(d))
+ .catch(e=>{
+   console.log(e,"messages")
+   res.status(403).json({ e });
+ });
+})
+router.delete('/:id',(req,res)=>
+{
+valueFunction.deleteValue(req.params.id)
+.then(d=>res.json(d))
+.catch(e=>
+  {
+    res.status(403).json({e});
+  })
+})
+
+router.put('/:id',(req,res)=>
+{
+valueFunction.updateValue(req.body,req.params.id)
+.then(d=>res.json(d))
+.catch(e=>
+  {
+    res.status(403).json({e});
+  })
+})
+module.exports=router;
