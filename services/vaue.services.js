@@ -9,7 +9,14 @@ class value
   {
 return new Promise((resolve,reject)=>
 {
+
     let value=new valueModel(payload);
+    value.uploadedTime=Math.floor(Date.now() / 1000);
+
+    // value.uploadedTime=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
+    // now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
+    console.log(value);
+    
     value.save()
     .then(d=>resolve(d))
     .catch(e=>reject(e))
@@ -38,7 +45,7 @@ getValueList() {
           .catch(e => reject(e));
       });
   }
-  deletePlace(id) {
+  deleteValue(id) {
     return new Promise((resolve, reject) => {
       valueModel
         .findByIdAndDelete(id)
@@ -47,7 +54,7 @@ getValueList() {
     });
   }
 
-  updateUser(payload, pId) {
+  updateValue(payload, pId) {
     return new Promise((resolve, reject) => {
       valueModel
         .findByIdAndUpdate(

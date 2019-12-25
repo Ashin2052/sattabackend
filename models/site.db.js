@@ -4,11 +4,9 @@ var siteSchema=new mongoose.Schema({
         type:String,
     },
   place:{
-      type:String
+      type:[Object]
   },
-    Value:{
-        type:Number
-    }
+  
    },
 {
 timestamps: true
