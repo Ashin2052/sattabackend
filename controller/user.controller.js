@@ -16,6 +16,7 @@ var cors = require('cors')
 
   router.post('/login',(req,res)=>
   {
+    console.log(req.body)
     userFunction.login(req.body)
    .then(d=>res.json(d))
    .catch(e=>{

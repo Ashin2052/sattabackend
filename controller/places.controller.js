@@ -4,15 +4,16 @@ const placeFunction=require('../services/places.services')
 var tokenValidation=require('../utilities/tokenValidator')
 
 
-router.post('/',(req,res)=>
+router.post('/',tokenValidation.checkToken,(req,res)=>
 {
+  console.log(req.body)
     placeFunction.addPlace(req.body)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));
 })
 
 
-router.get('/',(req,res)=>
+router.get('/',tokenValidation.checkToken,(req,res)=>
 {
   placeFunction.getPlaceList()
   .then(d=>res.json(d))
@@ -21,7 +22,7 @@ router.get('/',(req,res)=>
    res.status(403).json({ e });
  });
 })
-router.get('/:id',(req,res)=>
+router.get('/:id',tokenValidation.checkToken,(req,res)=>
 {
   placeFunction.getParlicaulaPlace(req.params.id)
   .then(d=>res.json(d))
@@ -30,7 +31,7 @@ router.get('/:id',(req,res)=>
    res.status(403).json({ e });
  });
 })
-router.delete('/:id',(req,res)=>
+router.delete('/:id',tokenValidation.checkToken,(req,res)=>
 {
 placeFunction.deletePlace(req.params.id)
 .then(d=>res.json(d))
@@ -40,7 +41,7 @@ placeFunction.deletePlace(req.params.id)
   })
 })
 
-router.put('/:id',(req,res)=>
+router.put('/:id',tokenValidation.checkToken,(req,res)=>
 {
 placeFunction.updatePlace(req.body,req.params.id)
 .then(d=>res.json(d))

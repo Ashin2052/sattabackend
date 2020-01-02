@@ -49,9 +49,7 @@ class filesFind {
               );
               var userMap = {
                 id: user._id,
-                userName: user.userName,
-                passWord: user.passWord,
-              
+                userName: user.userName              
               };
               const obj = { jwtToken, userMap };
               resolve(obj);
