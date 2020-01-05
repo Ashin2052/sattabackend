@@ -1,11 +1,17 @@
 const mongoose=require("mongoose")
 var siteSchema=new mongoose.Schema({
-    wbeName:{
-        type:String,
+    siteName:{
+        required:true,
+        unique: true ,
+        type:String        
+
     },
-  place:{
+    siteValue:{
       type:[Object]
   },
+  uploadedTime:{
+      type:Number
+  }
   
    },
 {

@@ -8,7 +8,10 @@ router.post('/',(req,res)=>
 {
     siteFunction.addSite(req.body)
  .then(d=>res.json(d))
- .catch(e=>res.json(e));
+ .catch(e=>{
+  res.status(403).json({ e });
+
+ });
 })
 
 

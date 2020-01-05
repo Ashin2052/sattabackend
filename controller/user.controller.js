@@ -7,7 +7,7 @@ var cors = require('cors')
 
 
 
-  router.post('/signUp',(req,res)=>
+  router.post('/signUp',tokenValidation.checkToken,(req,res)=>
   {
     userFunction.signUp(req.body)
    .then(d=>res.json(d))

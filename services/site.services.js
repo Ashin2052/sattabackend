@@ -6,6 +6,8 @@ class site {
   addSite(payload) {
     return new Promise((resolve, reject) => {
       let site = new siteModel(payload);
+      site.uploadedTime=Math.floor(Date.now() / 1000);
+
       site
         .save()
         .then(d => resolve(d))
