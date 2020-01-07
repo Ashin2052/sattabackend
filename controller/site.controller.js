@@ -6,7 +6,7 @@ var tokenValidation=require('../utilities/tokenValidator')
 
 router.post('/',(req,res)=>
 {
-    siteFunction.addSite(req.body)
+   siteFunction.addSite(req.body)
  .then(d=>res.json(d))
  .catch(e=>{
   res.status(403).json({ e });

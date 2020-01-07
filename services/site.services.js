@@ -1,13 +1,13 @@
 const siteModel = require("../models/site.db");
+const moment = require('moment-timezone');
 
 class site {
   constructor() {}
 
   addSite(payload) {
     return new Promise((resolve, reject) => {
+      
       let site = new siteModel(payload);
-      site.uploadedTime=Math.floor(Date.now() / 1000);
-
       site
         .save()
         .then(d => resolve(d))
@@ -20,7 +20,9 @@ class site {
       siteModel
         .find()
         .then(d => {
-          resolve(d);
+        
+           
+            resolve(d)
         })
         .catch(e => reject(e));
     });
@@ -65,5 +67,6 @@ class site {
         .catch(e => reject(e));
     });
   }
+  
 }
 module.exports = new site();

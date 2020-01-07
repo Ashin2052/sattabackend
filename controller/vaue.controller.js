@@ -4,9 +4,11 @@ const valueFunction=require('../services/vaue.services')
 var tokenValidation=require('../utilities/tokenValidator')
 
 
-router.post('/',(req,res)=>
+router.post('/startEnd',(req,res)=>
 {
-valueFunction.addValue(req.body)
+  console.log(req.body,req.query)
+
+valueFunction.addValue(req.body,req.query.startDay,req.query.endDay)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));
 })

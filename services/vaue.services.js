@@ -1,17 +1,18 @@
 const valueModel=require('../models/value.db')
+const moment = require('moment-timezone');
 
 
 class value
 {
     constructor() {}
 
-  addValue(payload)
+  addValue(payload,startDay,endDay)
   {
 return new Promise((resolve,reject)=>
 {
 
     let value=new valueModel(payload);
-    value.uploadedTime=Math.floor(Date.now() / 1000);
+    value.uploadedTime=moment().utcOffset("+05:30").format()
 
     // value.uploadedTime=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
     // now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());

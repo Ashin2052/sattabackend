@@ -1,7 +1,8 @@
 const mongoose=require('mongoose')
 
 var valueSchema=new mongoose.Schema({
-    placeId:{
+ 
+    placeName:{
         type:String,
         required:true
     },
@@ -11,6 +12,7 @@ var valueSchema=new mongoose.Schema({
     },
    uploadedTime: {
        type:Number,
+       default:null,
        required:true
 
     }
