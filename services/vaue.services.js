@@ -12,18 +12,37 @@ return new Promise((resolve,reject)=>
 {
 
     let value=new valueModel(payload);
-    value.uploadedTime=moment().utcOffset("+05:30").format()
 
     // value.uploadedTime=Date.UTC(now.getUTCFullYear(),now.getUTCMonth(), now.getUTCDate() , 
     // now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds(), now.getUTCMilliseconds());
-    console.log(value);
     
     value.save()
     .then(d=>resolve(d))
     .catch(e=>reject(e))
 })
 }
+checkTodayValue(startDay,endDay)
+{
+  return new Promise((resolve,reject)=>
+{
+console.log(startDay,endDay,"fasd")
+valueModel.find({ uploadedTime: { $gt:startDay, $lt: endDay } })
+.then(d=>
+  {
+    console.log(d,"dd")
+    resolve(d)
 
+  })
+.catch(e=>
+  {
+    console.log(e)
+    reject(e)
+  
+  })
+
+
+})
+}
 getValueList() {
     return new Promise((resolve, reject) => {
         valueModel

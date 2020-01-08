@@ -6,13 +6,18 @@ var tokenValidation=require('../utilities/tokenValidator')
 
 router.post('/startEnd',(req,res)=>
 {
-  console.log(req.body,req.query)
 
 valueFunction.addValue(req.body,req.query.startDay,req.query.endDay)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));
 })
+router.get('/startEnd',(req,res)=>
+{
 
+valueFunction.checkTodayValue(req.query.startDay,req.query.endDay)
+ .then(d=>res.json(d))
+ .catch(e=>res.json(e));
+})
 
 router.get('/',(req,res)=>
 {
