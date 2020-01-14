@@ -8,7 +8,11 @@ class place {
       let place = new placeModel(payload);
       place
         .save()
-        .then(d => resolve(d))
+        .then(d => 
+          {
+            resolve(d)     
+          
+          })
         .catch(e => reject(e));
     });
   }
