@@ -8,25 +8,23 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 
 require("dotenv").config({ path: "variables.env" });
-
-const uri = "mongodb+srv://ashinmahat:myattitude@ashincluster-et3nk.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
+const dbCon="mongodb+srv://mahat.ashin@gmail.com:barcelona@cluster0-ykjjj.mongodb.net/test?retryWrites=true&w=majority";
+// const uri = "mongodb+srv://ashinmahat:myattitude@ashincluster-et3nk.mongodb.net/test?retryWrites=true&w=majority";
+mongoose.connect(dbCon, { useNewUrlParser: true , useUnifiedTopology: true });
+mongoose.connection.on("connected", () =>
+  console.log("mongodb connected successfully.")
+);
 mongoose.connection.on("error", error => console.log("connection failed."));
+app.use(cors());
 
 app.use(
   bodyparsers.urlencoded({
     extended: true
   })
 );
-app.use(cors());
 app.use(bodyparsers.json({}));
 app.use("/", routeManager);
 // app.use('',express.static(__dirname + '/crud/'));
 app.use('', express.static(__dirname + '/sattaking/'));
 
-app.listen(process.env.PORT || 8080, () => console.log("server started"));
+app.listen(process.env.PORT || 8080 , () => console.log("server started"));

@@ -13,7 +13,7 @@ router.post('/',tokenValidation.checkToken,(req,res)=>
 })
 
 
-router.get('/',tokenValidation.checkToken,(req,res)=>
+router.get('/',(req,res)=>
 {
   placeFunction.getPlaceList()
   .then(d=>res.json(d))

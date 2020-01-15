@@ -422,7 +422,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\r\n<div class=\"card\" >\r\n  <div class=\"card-header\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addPlace()\">Add place</button>\r\n  </div>\r\n<table class=\"table\">\r\n  <thead class=\"thead-dark\">\r\n    <tr>\r\n      <th scope=\"col\">Sn</th>\r\n      <th scope=\"col\">Place Name</th>\r\n      <th scope=\"col\">Place Abbvr</th>\r\n      <th scope=\"col\">Time</th>\r\n      <th scope=\"col\">Edit</th>\r\n      <th scope=\"col\">Delete</th>\r\n\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr  *ngFor=\"\r\n    let list of allPlaceList\r\n      | paginate: { itemsPerPage: 30, currentPage: p };\r\n      let i = index\">\r\n      <th scope=\"row\">{{ 30 * (p - 1) + i + 1 }}</th>\r\n      <td>{{list.placeName}}</td>\r\n      <td>{{list.placeAbbvr}}</td>\r\n      <td>{{list.placeTime |  amDateFormat:'lll'}}</td>\r\n      <td>\r\n        <a\r\n          (click)=\"editBind(list)\"\r\n        >\r\n          <i class=\"fas fa-user-edit\" style=\"font-size:24px\"></i>\r\n        </a>\r\n      </td>\r\n      <td>\r\n        <a (click)=\"delete(list._id, i)\">\r\n          <i class=\"fas fa-trash-alt\" style=\"font-size:24px;\"></i>\r\n        </a>\r\n      </td>\r\n    </tr>\r\n   \r\n  </tbody>\r\n</table>\r\n<pagination-controls\r\n(pageChange)=\"p = $event\"\r\nstyle=\"text-align: center;\"\r\n>\r\n</pagination-controls>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\r\n<div class=\"card\" >\r\n  <div class=\"card-header\">\r\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addPlace()\">Add place</button>\r\n  </div>\r\n<table class=\"table\">\r\n  <thead class=\"thead-dark\">\r\n    <tr>\r\n      <th scope=\"col\">Sn</th>\r\n      <th scope=\"col\">Place Name</th>\r\n      <th scope=\"col\">Place Abbvr</th>\r\n      <th scope=\"col\">Time</th>\r\n      <th scope=\"col\">Edit</th>\r\n      <th scope=\"col\">Delete</th>\r\n\r\n    </tr>\r\n  </thead>\r\n  <tbody>\r\n    <tr  *ngFor=\"\r\n    let list of allPlaceList\r\n      | paginate: { itemsPerPage: 30, currentPage: p };\r\n      let i = index\">\r\n      <th scope=\"row\">{{ 30 * (p - 1) + i + 1 }}</th>\r\n      <td>{{list.placeName}}</td>\r\n      <td>{{list.placeAbbvr}}</td>\r\n      <td>{{list.placeTime |   amDateFormat:'lll'}}</td>\r\n      <td>\r\n        <a\r\n          (click)=\"editBind(list)\"\r\n        >\r\n          <i class=\"fas fa-user-edit\" style=\"font-size:24px\"></i>\r\n        </a>\r\n      </td>\r\n      <td>\r\n        <a (click)=\"delete(list._id, i)\">\r\n          <i class=\"fas fa-trash-alt\" style=\"font-size:24px;\"></i>\r\n        </a>\r\n      </td>\r\n    </tr>\r\n   \r\n  </tbody>\r\n</table>\r\n<pagination-controls\r\n(pageChange)=\"p = $event\"\r\nstyle=\"text-align: center;\"\r\n>\r\n</pagination-controls>\r\n</div>");
 
 /***/ }),
 
@@ -461,7 +461,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addSite()\">Add site</button>\n  </div>\n\n  <div class=\"card-group\">\n    <div class=\"col-md-4\" *ngFor=\"let list of allSiteList | paginate: { itemsPerPage: 9, currentPage: p };\n    let i = index\n  \">\n\n      <div class=\"card\">\n\n        <div class=\"card-body\">\n          <!-- <table class=\"table\">\n              <thead class=\"thead-dark\">\n                <tr>\n                  <th scope=\"col\">Place</th>\n                  <th scope=\"col\">Value</th>\n\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let particular of list.siteValue; let i = index\">\n                  <td>{{particular.place}}</td>\n                  <td>\n                    {{particular.value}}\n                  </td>\n                </tr>\n\n\n\n              </tbody>\n            </table> -->\n\n          <div class=\"bg-gradient \">\n            <div class=\" m-auto text-center \">\n\n              <div class=\" princing-item red\">\n                <div class=\"pricing-divider \">\n                  <h1 (click)=\"editPlace(list)\" id=\"editdSite\">{{list.siteName}} </h1> <h2 style=\"color: snow;\">{{list.createdAt |  amDateFormat:'lll'}}</h2><i class=\"fa fa-trash\" id=\"trash\"  style=\"font-size:x-large;\" (click)=\"delete(list,i)\"></i>\n                  <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'\n                    preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px'\n                    xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'\n                    y='0px'>\n                    <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729\n          c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>\n                    <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729\n          c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>\n                    <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716\n          H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>\n                    <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428\n          c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>\n                  </svg>\n                </div>\n                <div class=\"card-body bg-white mt-0 shadow \" style=\"position: relative;\">\n                  <div class=\"d-flex justify-content-center\">...</div>\n\n                  <table class=\"table\">\n                    <thead> \n                    <tr>\n                     <th>\n                        Place\n                      </th>\n                      <th>\n                        Value\n                      </th>\n                     \n                    </tr>\n                  </thead>\n                  <tbody>\n\n                    <tr \n                      *ngFor=\"let particular of list.siteValue; let i = index\">\n                        <td> {{particular.place}}</td>\n                        <td> {{particular.value}}\n                        </td>\n                     \n                    </tr>\n                  </tbody>\n\n                  </table>\n                \n</div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n       \n      </div>\n   \n    </div>\n    <pagination-controls (pageChange)=\"p = $event\" style=\"text-align: center;\">\n    </pagination-controls>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\n<div class=\"card\">\n  <div class=\"card-header\">\n    <button type=\"button\" class=\"btn btn-secondary\" (click)=\"addSite()\">Add site</button>\n  </div>\n\n  <div class=\"card-group\">\n    <div class=\"col-md-4\" *ngFor=\"let list of allSiteList | paginate: { itemsPerPage: 9, currentPage: p };\n    let i = index\n  \">\n\n      <div class=\"card\">\n\n        <div class=\"card-body\">\n          <!-- <table class=\"table\">\n              <thead class=\"thead-dark\">\n                <tr>\n                  <th scope=\"col\">Place</th>\n                  <th scope=\"col\">Value</th>\n\n                </tr>\n              </thead>\n              <tbody>\n                <tr *ngFor=\"let particular of list.siteValue; let i = index\">\n                  <td>{{particular.place}}</td>\n                  <td>\n                    {{particular.value}}\n                  </td>\n                </tr>\n\n\n\n              </tbody>\n            </table> -->\n\n          <div class=\"bg-gradient \">\n            <div class=\" m-auto text-center \">\n\n              <div class=\" princing-item red\">\n                <div class=\"pricing-divider \">\n                  <h1 (click)=\"editPlace(list)\" id=\"editdSite\">{{list.siteName}} </h1> <h2 style=\"color: snow;\">{{list.createdAt |   amDateFormat:'lll'}}</h2><i class=\"fa fa-trash\" id=\"trash\"  style=\"font-size:x-large;\" (click)=\"delete(list,i)\"></i>\n                  <svg class='pricing-divider-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1'\n                    preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px'\n                    xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg'\n                    y='0px'>\n                    <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729\n          c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>\n                    <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729\n          c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>\n                    <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716\n          H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>\n                    <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428\n          c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>\n                  </svg>\n                </div>\n                <div class=\"card-body bg-white mt-0 shadow \" style=\"position: relative;\">\n                  <div class=\"d-flex justify-content-center\">...</div>\n\n                  <table class=\"table\">\n                    <thead> \n                    <tr>\n                     <th>\n                        Place\n                      </th>\n                      <th>\n                        Value\n                      </th>\n                     \n                    </tr>\n                  </thead>\n                  <tbody>\n\n                    <tr \n                      *ngFor=\"let particular of list.siteValue; let i = index\">\n                        <td> {{particular.place}}</td>\n                        <td> {{particular.value}}\n                        </td>\n                     \n                    </tr>\n                  </tbody>\n\n                  </table>\n                \n</div>\n                </div>\n              </div>\n            </div>\n          </div>\n        </div>\n       \n      </div>\n   \n    </div>\n    <pagination-controls (pageChange)=\"p = $event\" style=\"text-align: center;\">\n    </pagination-controls>");
 
 /***/ }),
 
@@ -474,7 +474,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\n<div class=\"card\">\n  <div class=\"card-header\">\n    Values\n  </div>\n  <div class=\"card-body\">\n\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th>\n            SN.\n          </th>\n          <TH>\n            Place Name\n          </TH>\n          <th>\n            Value\n          </th>\n          <th>\n            Updated On\n          </th>\n          <th>\n            Update\n          </th>\n\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let list of valueTable | paginate: { itemsPerPage: 30, currentPage: p };\n        let i = index\">\n\n          <th scope=\"row\">{{ 30 * (p - 1) + i + 1 }}</th>\n\n          <td>\n            {{  list.placeName}}\n          </td>\n          <td>\n            {{list.placeValue}}\n          </td>\n          <td>\n            {{list.updatedAt  |  amDateFormat:'lll'}}\n          </td>\n          <td>\n            <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"updateValue(list,i)\"\n            >\n              <i class=\"fas fa-edit\"></i>\n\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n\n\n</div>\n<app-valuesfrom\n  [passedUserValue]=\"editValue\"\n  (newData)=\"receivedData($event)\"\n></app-valuesfrom>\n\n");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-navbar></app-navbar>\n<div class=\"card\">\n  <div class=\"card-header\">\n    Values\n  </div>\n  <div class=\"card-body\">\n\n    <table class=\"table\">\n      <thead class=\"thead-dark\">\n        <tr>\n          <th>\n            SN.\n          </th>\n          <TH>\n            Place Name\n          </TH>\n          <th>\n            Value\n          </th>\n          <th>\n            Updated On\n          </th>\n          <th>\n            Update\n          </th>\n\n        </tr>\n      </thead>\n      <tbody>\n        <tr *ngFor=\"let list of valueTable | paginate: { itemsPerPage: 30, currentPage: p };\n        let i = index\">\n\n          <th scope=\"row\">{{ 30 * (p - 1) + i + 1 }}</th>\n\n          <td>\n            {{  list.placeName}}\n          </td>\n          <td>\n            {{list.placeValue}}\n          </td>\n          <td>\n            {{list.updatedAt  |   amDateFormat:'lll'}}\n          </td>\n          <td>\n            <button type=\"button\" class=\"btn btn-primary\" data-toggle=\"modal\" (click)=\"updateValue(list,i)\"\n            >\n              <i class=\"fas fa-edit\"></i>\n\n            </button>\n          </td>\n        </tr>\n      </tbody>\n    </table>\n  </div>\n\n\n\n</div>\n<app-valuesfrom\n  [passedUserValue]=\"editValue\"\n  (newData)=\"receivedData($event)\"\n></app-valuesfrom>\n\n");
 
 /***/ }),
 
@@ -1863,12 +1863,8 @@ let PlaceServiceService = class PlaceServiceService {
         });
     }
     getAllPlace() {
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.get(this.baseUrl, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        console.log(this.baseUrl);
+        return this.httpClient.get(this.baseUrl);
     }
     getParticularPlace(id) {
         this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
@@ -1993,57 +1989,28 @@ let ValueServiceService = class ValueServiceService {
     constructor(httpClient) {
         this.httpClient = httpClient;
         this.baseUrl = src_environments_environment__WEBPACK_IMPORTED_MODULE_3__["environment"].baseUrl + '/rest/v1/value/';
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
     }
     savevalue(value, startDay, endDay) {
         var finalUrl = this.baseUrl + "startEnd?startDay=" + startDay + '&&endDay=' + endDay;
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.post(finalUrl, value, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        return this.httpClient.post(finalUrl, value);
     }
     checkTodayValue(startDay, endDay) {
         var finalUrl = this.baseUrl + "startEnd?startDay=" + startDay + '&&endDay=' + endDay;
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.get(finalUrl, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        return this.httpClient.get(finalUrl);
     }
     deletevalue(id) {
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.delete(this.baseUrl + id, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        if (localStorage.getItem('sattaToken'))
+            return this.httpClient.delete(this.baseUrl + id);
     }
     updatevalue(id, value) {
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.put(this.baseUrl + id, value, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        return this.httpClient.put(this.baseUrl + id, value);
     }
     getAllvalue() {
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.get(this.baseUrl, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        if (localStorage.getItem('sattaToken'))
+            return this.httpClient.get(this.baseUrl);
     }
     getParticularvalue(id) {
-        this.sattaToken = JSON.parse(localStorage.getItem('sattaToken')).jwtToken;
-        return this.httpClient.get(this.baseUrl + id, {
-            headers: new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]({
-                Authorization: this.sattaToken
-            })
-        });
+        return this.httpClient.get(this.baseUrl + id);
     }
 };
 ValueServiceService.ctorParameters = () => [
@@ -2624,7 +2591,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    baseUrl: "users"
+    baseUrl: null
 };
 /*
  * For easier debugging in development mode, you can import the following file
