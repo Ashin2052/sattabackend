@@ -8,7 +8,7 @@ const MongoClient = require('mongodb').MongoClient;
 const app = express();
 
 require("dotenv").config({ path: "variables.env" });
-const dbCon="mongodb+srv://mahat.ashin@gmail.com:barcelona@cluster0-ykjjj.mongodb.net/test?retryWrites=true&w=majority";
+const dbCon="mongodb+srv://mahat.ashin@gmail.com:catalonia@cluster0-ykjjj.mongodb.net/test?retryWrites=true&w=majority";
 // const uri = "mongodb+srv://ashinmahat:myattitude@ashincluster-et3nk.mongodb.net/test?retryWrites=true&w=majority";
 mongoose.connect(dbCon, { useNewUrlParser: true , useUnifiedTopology: true });
 mongoose.connection.on("connected", () =>
