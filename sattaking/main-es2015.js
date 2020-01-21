@@ -2893,7 +2893,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const environment = {
     production: false,
-    baseUrl: null
+    baseUrl: '/'
 };
 /*
  * For easier debugging in development mode, you can import the following file
