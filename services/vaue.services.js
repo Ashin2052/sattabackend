@@ -25,11 +25,9 @@ checkTodayValue(startDay,endDay)
 {
   return new Promise((resolve,reject)=>
 {
-console.log(startDay,endDay,"fasd")
 valueModel.find({ uploadedTime: { $gt:startDay, $lt: endDay } })
 .then(d=>
   {
-    console.log(d,"dd")
     resolve(d)
 
   })

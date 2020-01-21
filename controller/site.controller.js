@@ -4,7 +4,7 @@ const siteFunction=require('../services/site.services')
 var tokenValidation=require('../utilities/tokenValidator')
 
 
-router.post('/',(req,res)=>
+router.post('/',tokenValidation.checkToken,(req,res)=>
 {
    siteFunction.addSite(req.body)
  .then(d=>res.json(d))
@@ -15,7 +15,7 @@ router.post('/',(req,res)=>
 })
 
 
-router.get('/',(req,res)=>
+router.get('/',tokenValidation.checkToken,(req,res)=>
 {
   siteFunction.getSiteList()
   .then(d=>res.json(d))
@@ -24,7 +24,15 @@ router.get('/',(req,res)=>
    res.status(403).json({ e });
  });
 })
-router.get('/:id',(req,res)=>
+router.get('/allTodaySiteValues',(req,res)=>
+{console.log(req.query.startDay)
+    siteFunction.checkTodaySiteValue(req.query.startDay,req.query.endDay)  
+    .then(d=>res.json(d))
+ .catch(e=>{
+   res.status(403).json({ e });
+ });
+})
+router.get('/:id',tokenValidation.checkToken,(req,res)=>
 {
   siteFunction.getParlicaulaSite(req.params.id)
   .then(d=>res.json(d))
@@ -33,7 +41,7 @@ router.get('/:id',(req,res)=>
    res.status(403).json({ e });
  });
 })
-router.delete('/:id',(req,res)=>
+router.delete('/:id',tokenValidation.checkToken,(req,res)=>
 {
 siteFunction.deleteSite(req.params.id)
 .then(d=>res.json(d))
@@ -43,7 +51,7 @@ siteFunction.deleteSite(req.params.id)
   })
 })
 
-router.put('/:id',(req,res)=>
+router.put('/:id',tokenValidation.checkToken,(req,res)=>
 {
 siteFunction.updateSite(req.body,req.params.id)
 .then(d=>res.json(d))

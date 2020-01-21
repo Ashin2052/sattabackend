@@ -27,7 +27,26 @@ class site {
         .catch(e => reject(e));
     });
   }
-
+  checkTodaySiteValue(startDay,endDay)
+  {
+    return new Promise((resolve,reject)=>
+  {
+  siteModel.find({uploadedTime: { $gt:startDay, $lt: endDay } })
+  .then(d=>
+    {
+      console.log(d)
+      resolve(d)
+  
+    })
+  .catch(e=>
+    {
+      reject(e)
+    
+    })
+  
+  
+  })
+  }
   getParlicaulaSite(pid) {
     return new Promise((resolve, reject) => {
       siteModel
