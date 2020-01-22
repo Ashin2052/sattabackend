@@ -25,7 +25,7 @@ app.use(
 app.use(bodyparsers.json({}));
 app.use("/", routeManager);
 app.use('', express.static(__dirname + '/sattaking/'));
-app.get('*', (request, response) => {
-	response.sendFile(path.join(__dirname+'/sattaKing/index.html'));
+app.get('/*', (req, res) => {
+	res.sendFile(path.join(__dirname+'/sattaKing/index.html'));
 });
 app.listen(process.env.PORT || 8080 , () => console.log("server started"));
