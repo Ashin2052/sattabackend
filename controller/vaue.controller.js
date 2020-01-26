@@ -11,6 +11,12 @@ valueFunction.addValue(req.body,req.query.startDay,req.query.endDay)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));
 })
+router.get('/getByMonth',(req,res)=>
+{
+valueFunction.getByMonth(req.query.startOfMonth,req.query.endOfM)
+ .then(d=>res.json(d))
+ .catch(e=>res.json(e));
+})
 router.get('/startEnd',(req,res)=>
 {
 
@@ -56,4 +62,7 @@ valueFunction.updateValue(req.body,req.params.id)
     res.status(403).json({e});
   })
 })
+
+
+
 module.exports=router;

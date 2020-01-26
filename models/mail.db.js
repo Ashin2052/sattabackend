@@ -10,5 +10,5 @@ var mailSchema=new mongoose.Schema({
     timestamps:true
 });
 
-const mailModel = mongoose.model("userSchema", mailSchema);
+const mailModel = mongoose.model("mailSchema", mailSchema);
 module.exports=mailModel;
