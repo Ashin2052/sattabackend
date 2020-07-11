@@ -17,9 +17,14 @@ valueFunction.getByMonth(req.query.startOfMonth,req.query.endOfM)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));
 })
+router.get('/getByPlace',(req,res)=>
+{
+valueFunction.getByPlaceName(req.query.startOfMonth,req.query.endOfM)
+ .then(d=>res.json(d))
+ .catch(e=>res.json(e));
+})
 router.get('/startEnd',(req,res)=>
 {
-
 valueFunction.checkTodayValue(req.query.startDay,req.query.endDay)
  .then(d=>res.json(d))
  .catch(e=>res.json(e));

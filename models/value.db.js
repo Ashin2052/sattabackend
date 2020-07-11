@@ -15,7 +15,15 @@ var valueSchema=new mongoose.Schema({
        default:null,
        required:true
 
+    },
+    highlight:{
+        type:Boolean
     }
+,
+placeAbbvr:
+{
+    type:String
+}
 },
 {
     timestamps:true

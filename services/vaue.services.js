@@ -64,7 +64,15 @@ class value {
         .catch(e => reject(e));
     });
   }
+  getByPlaceName(start, end)
+  {
+    return new Promise((resolve, reject) => {
+      valueModel.find({ uploadedTime: { $gt: start, $lt: end } })
+      .then(d => resolve(d))
+      .catch(e => reject(e))
 
+    })
+  }
   updateValue(payload, pId) {
     return new Promise((resolve, reject) => {
       valueModel
